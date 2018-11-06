@@ -1,0 +1,27 @@
+{# caesar/templates/products.html #}
+{% extends "layout.html" %}
+{# Load the tag library #}
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block title %}
+<div class="container" align="center">
+    Add new category
+</div>
+{% endblock %}
+
+{% block content %}
+
+{% trans "Update" as update %}
+
+<div class="container">
+
+    <form action="" method="post">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      {% bootstrap_button update button_type="submit" button_class="btn-success" %}
+    </form>
+
+</div>
+
+{% endblock %}

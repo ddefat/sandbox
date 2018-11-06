@@ -1,0 +1,16 @@
+{# caesar/templates/products.html #}
+{% extends "layout.html" %}
+{# Load the tag library #}
+{% load bootstrap4 %}
+
+{% block title %}Confirm deletion{% endblock %}
+
+{% block content %}
+
+    <form action="" method="post">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <input type="submit" value="Confirm" />
+    </form>
+
+{% endblock %}

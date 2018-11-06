@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{# Load the tag library #}
+{% load bootstrap4 %}
+{% load i18n %}
+
+
+{% block content %}
+
+<div class="container">
+
+    <form class="form card card-block card-body bg-light" method="post">
+        {% csrf_token %}
+
+        <h3 class="card-title">{% trans "Contact form" %}</h3>
+        <p class="card-text">{% trans "This form can be used to contact a member" %}</p>
+
+        {% trans "Confirm" as confirm %}
+
+        {% bootstrap_form form %}
+        {% bootstrap_button confirm button_type="submit" button_class="btn-success" %}
+
+    </form>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-06 09:32+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: caesar/forms/contact.py:28 caesar/forms/contact.py:54
+#: caesar/forms/contact.py:60
+msgid "Receiver username"
+msgstr "Pseudo du destinataire"
+
+#: caesar/forms/contact.py:29 caesar/forms/contact.py:55
+#: caesar/forms/contact.py:62 caesar/templates/caesar/contact_list.html:48
+msgid "Subject"
+msgstr "Sujet"
+
+#: caesar/forms/contact.py:30 caesar/forms/contact.py:56
+#: caesar/forms/contact.py:64 caesar/templates/caesar/contact_list.html:49
+msgid "Content"
+msgstr "Contenu"
+
+#: caesar/forms/contact.py:31 caesar/forms/contact.py:66
+msgid "Sender username"
+msgstr "Pseudo du destinateur"
+
+#: caesar/forms/product.py:21 caesar/forms/product.py:23
+msgid "Product name"
+msgstr "Nom du produit"
+
+#: caesar/templates/add_product.html:15
+#: caesar/templates/caesar/category_form.html:15
+msgid "Update"
+msgstr "Modifier"
+
+#: caesar/templates/caesar/contact_create.html:14
+msgid "Contact form"
+msgstr "Formulaire de contact"
+
+#: caesar/templates/caesar/contact_create.html:15
+msgid "This form can be used to contact a member"
+msgstr "Ce formulaire peut être utilisé pour contacter un membre"
+
+#: caesar/templates/caesar/contact_create.html:17
+msgid "Confirm"
+msgstr "Confirmer"
+
+#: caesar/templates/caesar/contact_detail.html:22
+msgid "Go back to the home page"
+msgstr "Retourner à la page principale"
+
+#: caesar/templates/caesar/contact_email.html:5
+msgid "Hello"
+msgstr "Bonjour"
+
+#: caesar/templates/caesar/contact_email.html:7
+msgid "this is an automatic response, please do not reply."
+msgstr "ceci est une réponse automatique, ne répondez-pas s'il-vous-plait."
+
+#: caesar/templates/caesar/contact_email.html:9
+msgid "The member"
+msgstr "Le membre"
+
+#: caesar/templates/caesar/contact_email.html:9
+msgid "wants to reach you."
+msgstr "désire entrer en contact avec vous."
+
+#: caesar/templates/caesar/contact_email.html:10
+msgid "You can respond via the following email address"
+msgstr "Vous pouvez répondre via l'adresse de messagerie suivante"
+
+#: caesar/templates/caesar/contact_email.html:12
+msgid "Below, the content of the message addressed to you."
+msgstr "Ci-dessous, le contenu du message qui vous est adressé."
+
+#: caesar/templates/caesar/contact_email.html:16
+msgid "Best regards, the IT Team!"
+msgstr "Cordialement, l'équipe IT!"
+
+#: caesar/templates/caesar/contact_list.html:8
+#: caesar/templates/products.html:17
+msgid "Filter"
+msgstr "Filtrer"
+
+#: caesar/templates/caesar/contact_list.html:13
+msgid "List of contacts"
+msgstr "Liste de contacts"
+
+#: caesar/templates/caesar/contact_list.html:14
+msgid "This form can be used to filter specific contact(s)"
+msgstr "Ce formulaire peut être utilisé pour filtrer des contacts spécifiques"
+
+#: caesar/templates/caesar/contact_list.html:50
+msgid "Sender"
+msgstr "Destinateur"
+
+#: caesar/templates/products.html:22
+msgid "List of products"
+msgstr "Liste des produits"
+
+#: caesar/templates/products.html:23
+msgid "This form can be used to filter specific product(s)."
+msgstr "Ce formulaire peut être utilisé pour filtrer des produits spécifiques"

@@ -1,0 +1,81 @@
+{# caesar/templates/products.html #}
+{% extends "layout.html" %}
+{# Load the tag library #}
+{% load bootstrap4 %}
+{% load i18n %}
+
+
+{% block title %}
+<div class="container" align="center">
+    Product list
+</div>
+{% endblock %}
+
+
+{% block search_bar %}
+
+{% trans "Filter" as filter %}
+
+<div class="container">
+    <form class="form card card-block card-body bg-light" method="get">
+
+        <h3 class="card-title">{% trans "List of products" %}</h3>
+        <p class="card-text">{% trans "This form can be used to filter specific product(s)." %}</p>
+
+        <div class="row" align="center">
+
+            <div class="col-lg-3">
+                {% bootstrap_field form.name %}
+            </div>
+
+            <div class="col-lg-2">
+                {% bootstrap_field form.category %}
+            </div>
+
+            <div class="col-lg-2">
+                {% bootstrap_field form.borrowed %}
+            </div>
+
+            <div class="col-lg-2">
+                {% bootstrap_button filter button_type="submit" button_class="btn-info" size="md" %}
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+{% endblock search_bar %}
+
+{% block content %}
+
+<div class="container">
+
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Borrowed date</th>
+            <th>Borrower</th>
+        </tr>
+        {% if products %}
+            {% for product in products %}
+                <tr>
+                    <td>
+                        <a href="{% url 'products:product_detail' pk=product.id %}">
+                        {{ product.name }} ({{ product.id }})
+                        </a>
+                    </td>
+                    <td>{{ product.borrowed_date }}</td>
+                    <td>{{ product.borrower }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <p>No product found !</p>
+        {% endif %}
+    </table>
+
+    <a class="btn btn-success" href="{% url 'products:product_add' %}">Add product</a>
+
+</div>
+
+{% endblock %}

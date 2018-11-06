@@ -1,0 +1,39 @@
+{# caesar/templates/product.html #}
+{% extends "layout.html" %}
+{% load bootstrap4 %}
+{% load i18n %}
+
+
+{% block title %}
+<div class="container" align="left">
+    <br>
+    Product detail
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <dl class="dl-horizontal">
+        <dt>Nom</dt>
+        <dd>{{ product.name }}</dd>
+        <dt>Category</dt>
+        {% for category in product.category.all %}
+            <dd>{{ category.name }}</dd>
+        {% endfor %}
+        <dt>Serial</dt>
+        <dd>{{ product.reference }}</dd>
+        <dt>Price</dt>
+        <dd>{{ product.price }}</dd>
+        <dt>Borrowed date</dt>
+        <dd>{{ product.borrowed_date }}</dd>
+        <dt>Created date</dt>
+        <dd>{{ product.created_date }}</dd>
+        {% if  product.image %}
+        <dt>Image</dt>
+        <dd><img src="{{ product.image.url }}"></dd>
+        {% endif %}
+    </dl>
+</div>
+
+{% endblock %}

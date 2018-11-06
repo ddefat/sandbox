@@ -1,0 +1,124 @@
+{# templates/layout.html #}
+
+{% load static %}
+{% load i18n %}
+
+
+<html>
+    <head>
+        <!-- <link href="https://bootswatch.com/4/united/bootstrap.min.css" rel="stylesheet"> -->
+        <title>SandBox</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+              integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    </head>
+    <body>
+        {# <header>Common header</header> #}
+
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">SandBox</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'products:products_list' %}">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'products:category_list' %}">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'products:contact_add' %}">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'products:template_list' %}">Template</a>
+                        </li>
+                    </ul>
+
+                    <div class="navbar-nav navbar-right">
+
+                        <div class="btn-group small_margin_left">
+
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                {{ LANGUAGE_CODE }}
+                            </button>
+
+                            <div class="dropdown-menu">
+
+                                <form id="set_language_form" action="{% url 'set_language' %}" method="post">
+
+                                    {% csrf_token %}
+
+                                    <input name="next" type="hidden" value="{{ redirect_to }}">
+                                    <input id="id_language" name="language" type="hidden" value="{{ language.code }}">
+
+                                    {% for language in languages %}
+                                        <a  class="dropdown-item"
+                                            onclick="set_language( '{{ language.code }}' )">
+                                            {{ language.name_translated }}
+                                        </a>
+                                    {% endfor %}
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="navbar-nav navbar-right">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="btn btn-secondary my-2 my-sm-0"  href="{% url 'logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="btn btn-secondary my-2 my-sm-0"  href="{% url 'login' %}">Login</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+              </nav>
+
+
+        <h1>{% block title %}{% endblock %}</h1>
+
+
+        {% block search_bar %}{% endblock %}
+        {% block content %}{% endblock %}
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+                integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+                integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                crossorigin="anonymous"></script>
+
+        <!-- Set the language code before submitting the form -->
+        <script>
+            function set_language(language_code) {
+                $('#id_language').val(language_code)
+                $('#set_language_form').submit()
+            }
+        </script>
+
+        {# <footer>Avé César, ceux qui vont programmer te saluent!</footer> #}
+    </body>
+</html>

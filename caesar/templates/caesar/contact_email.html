@@ -1,0 +1,18 @@
+{% load i18n %}
+
+{% autoescape off %}
+
+{% trans "Hello" %} {{ receiver.username }},
+
+{% trans "this is an automatic response, please do not reply." %}
+
+{% trans "The member" %} {{ sender.username }} {% trans "wants to reach you." %}
+{% trans "You can respond via the following email address" %} : {{ sender.email }}
+
+{% trans "Below, the content of the message addressed to you." %}
+
+"{{ content }}"
+
+{% trans "Best regards, the IT Team!" %}
+
+{% endautoescape %}

@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% load bootstrap4 %}
+{% load i18n %}
+
+
+{% block search_bar %}
+
+{% trans "Filter" as filter %}
+
+<div class="container">
+    <form class="form card card-block card-body bg-light" method="get">
+
+        <h3 class="card-title">{% trans "List of contacts" %}</h3>
+        <p class="card-text">{% trans "This form can be used to filter specific contact(s)" %}.</p>
+
+        <div class="row" align="center">
+
+            <div class="col-lg-2">
+                {% bootstrap_field form.subject %}
+            </div>
+
+            <div class="col-lg-5">
+                {% bootstrap_field form.content %}
+            </div>
+
+            <div class="col-lg-3">
+                {% bootstrap_field form.sender %}
+            </div>
+
+            <div class="col-lg-2">
+                {% bootstrap_button "Filter" button_type="submit" button_class="btn-info" size="md" %}
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+{% endblock search_bar %}
+
+
+{% block content %}
+
+<div class="container">
+    <table class="table table-striped">
+        {% if object_list %}
+            <tr align="center">
+                <th>{% trans "Subject" %}</th>
+                <th>{% trans "Content" %}</th>
+                <th>{% trans "Sender" %}</th>
+            </tr>
+
+            {% for contact in object_list %}
+                <tr align="center">
+                    <td>
+                        {{ contact.subject }}
+                    </td>
+                    <td>
+                        {{ contact.content }}
+                    </td>
+                    <td>
+                        {{ contact.sender }}
+                    </td>
+                </tr>
+            {% endfor %}
+
+        {% endif %}
+    </table>
+
+</div>
+
+{% endblock content %}

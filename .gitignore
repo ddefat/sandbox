@@ -1,0 +1,18 @@
+# Ignore specific files
+__pycache__
+
+# Ignore settings
+sandbox/settings.py
+
+# Ignore all those extensions
+*.png
+*.log
+*.sqlite3
+*.pyc
+
+# Ignore all hidden files
+.*
+
+# Except the ones below
+!.gitignore
+!.gitmodules
