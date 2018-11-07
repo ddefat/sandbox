@@ -103,8 +103,8 @@ class UpdateTemplateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView
 
 class DeleteTemplateView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     """
-    This view enable the Artist to delete an existing Artwork.
-    Permission to delete a Artwork for the related Artist only.
+    This view enable the User to delete an existing Artwork.
+    Permission to delete a Artwork for the related User only.
     """
     model = Template
     success_url = reverse_lazy('caesar:template_list')

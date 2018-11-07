@@ -19,7 +19,6 @@ class ListContactView(ListView):
     """
     Displays the list of all contacts created for all visitors;
     which means that no login and no permissions are required.
-    All contacts are presented with their related artist whom created the contact.
     """
     model = Contact
     form_class = SearchContactForm
@@ -75,8 +74,8 @@ class DetailContactView(DetailView):
 
 class AddContactView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     """
-    This view enable the Artist to create a new Contact.
-    Permission to add a Contact for the related Artist only.
+    This view enable the User to create a new Contact.
+    Permission to add a Contact for the related User only.
     """
     model = Contact
     template_name = "caesar/contact_create.html"

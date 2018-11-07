@@ -2,7 +2,7 @@
 """
 from django.shortcuts import redirect
 from django.template import Context, Template as TemplateEngine
-from django.template.loader import render_to_string, get_template
+from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
 from django.urls import reverse
 

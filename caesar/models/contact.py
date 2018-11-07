@@ -1,6 +1,5 @@
 """
 This model represents a Contact.
-A Contact is a an Artist or Staff Member emailed by a Member.
 """
 
 from django.db import models    # pylint: disable=import-error
